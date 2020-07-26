@@ -1,0 +1,56 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "concurrently": "^5.0.0",
+    "cross-env": "^6.0.3",
+
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "sweetalert2": "^9.0.2",
+    "typescript": "^3.7.2",
+    "wait-on": "^3.3.0",
+    "electron-is-dev": "^1.1.0"
+  },
+  "devDependencies": {
+    "electron": "^7.1.0",
+    "electron-builder": "^22.1.0"
+  },
+  "scripts": {
+      "react-start": "react-scripts start",
+      "react-build": "react-scripts build",
+      "react-test": "react-scripts test --env=jsdom",
+      "react-eject": "react-scripts eject",
+      "electron-build": "electron-builder -m",
+      "release": "react-build && electron-builder --publish=always",
+      "build": "react-build && electron-build",
+      "start": "concurrently \"cross-env BROWSER=none npm run react-start\" \"wait-on http://localhost:3000 && electron .\""
+  },
+  "main": "public/electron.js",
+  "homepage": "./",
+  "productName" : "APV",
+  "build": {
+    "mac": {
+      "icon": "build/icon.png"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
